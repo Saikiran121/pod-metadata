@@ -1,10 +1,9 @@
-apiVersion:apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pod-metadata-app
   labels:
     app: pod-metadata
-    type: diagnostic
 spec:
   replicas: 1
   selector:
@@ -14,13 +13,11 @@ spec:
     metadata:
       labels:
         app: pod-metadata
-        env: production
-        region: us-east-1
-        version: v1.0.0
     spec:
+      serviceAccountName: pod-metadata-sa
       containers:
       - name: pod-metadata-app
-        image: pod-metadata-app:latest # Replace with your actual image
+        image: pod-metadata-app:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
@@ -55,6 +52,3 @@ spec:
             - path: "labels"
               fieldRef:
                 fieldPath: metadata.labels
-            - path: "annotations"
-              fieldRef:
-                fieldPath: metadata.annotations
