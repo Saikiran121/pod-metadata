@@ -17,7 +17,7 @@ spec:
       serviceAccountName: pod-metadata-sa
       containers:
       - name: pod-metadata-app
-        image: pod-metadata-app:latest
+        image: saikiran8050/pod-metadata:v1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
