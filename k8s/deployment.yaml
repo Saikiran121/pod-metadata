@@ -14,7 +14,7 @@ spec:
       labels:
         app: pod-metadata
     spec:
-      serviceAccountName: pod-metadata-sa
+      #serviceAccountName: pod-metadata-sa
       containers:
       - name: pod-metadata-app
         image: saikiran8050/pod-metadata:v1
